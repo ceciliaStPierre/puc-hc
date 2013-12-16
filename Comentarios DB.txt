@@ -1,0 +1,12 @@
+Comentarios:
+- La Tabla "Plan" será la tabla intermedia entre actividad y usuario (Creada para la relación n-n)?
+	(Plan pasaría a tener una clave foranea a Paciente
+- No estoy convencido de la relación entre plan y paciente
+- Revisar si falta agregar información en algún lado
+
+Grupo Familiar
+
+
+Ruby On Rails:
+http://www.toptal.com/ruby-on-rails/after-two-decades-of-programming-i-use-rails
+http://www.infront.com/blogs/the-infront-blog/2013/1/4/five-reasons-why-we-use-ruby-on-rails

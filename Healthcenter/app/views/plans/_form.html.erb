@@ -1,0 +1,45 @@
+<div class="form-wrapper">
+<%= form_for @plan , :html => {:class => "form-horizontal"} do |f| %>
+  <% if @plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+      <% @plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label 'Objetivo familiar', :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_area :family_objective, :class => "form-control", :rows => "4" %>
+    </div>
+  </div>
+   <div class="form-group">
+    <%= f.label 'Objetivo clínico', :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_area :clinical_objective, :class => "form-control", :rows => "4" %>
+    </div>
+  </div>
+  <div class="form-selects">
+    <div class="left-select">
+      <%= f.label 'Factor de riesgo:' %>
+      <%= select_tag :risk_factor, options_for_select(PLAN_RISK) %>
+    </div>
+    <div class="right-select">
+      <%= f.label 'Tipo de plan:' %>
+      <%= select_tag :type, options_for_select(PLAN_TYPE) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit "Crear", :class => "btn btn-default" %>
+    </div>
+  </div>
+
+
+<% end %>
+</div>
+

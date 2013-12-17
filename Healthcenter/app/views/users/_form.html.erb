@@ -1,0 +1,53 @@
+<%= form_for (@user), :html => {:class => 'form-horizontal'} do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container registration-container">
+      
+      <%= f.label "Primer nombre", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :firstname, :class => "input-xlarge" %>
+      </div>
+      <%= f.label "Segundo nombre", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :secondname, :class => "input-xlarge" %>
+      </div>
+      <%= f.label "Apellido paterno", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :father_lastname, :class => "input-xlarge" %>
+      </div>
+      <%= f.label "Número de telefono", :class => "control-label" %>
+      <div class="controls">
+        <%= f.number_field :phone_number, :class => "input-xlarge" %>
+      </div>
+      <%= f.label "Especialidad", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :speciality, :class => "input-xlarge" %>
+      </div>
+    
+      <%= f.label "Correo", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :email, :class => "input-xlarge" %>
+      </div>
+      <%= f.label "Contraseña", :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password, :class => "input-xlarge" %>
+      </div>
+      <%= f.label "Confirma contraseña:", :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :class => "input-xlarge" %>
+      </div>
+      <%= f.submit "Registrar", :class => "btn btn-success" %>
+    </div>
+
+<% end %>
+

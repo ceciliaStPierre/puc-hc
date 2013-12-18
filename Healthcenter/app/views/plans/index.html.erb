@@ -1,31 +1,44 @@
-<h1>Listing plans</h1>
+<div class="board-wrapper">
+<% for i in 0..@plans.length-1 do %>
+  <% plan = @plans[i] %>
+  <div class="board" id="board-<%=i%>">
+    <div class="board-column" id="board-individual">
+      <div class="board-title">
+        <p>Individual</p>
+      </div>
+      <div class="board-item"></div>
+      <div class="board-item"></div>
+    </div>
+    <div class="board-column" id="board-family">
+      <div class="board-title">
+        <p>Familiar</p>
+      </div>
+      <div class="board-item"></div>
+      <div class="board-item"></div>
+      <div class="board-item"></div>
+    </div>
+    <div class="board-column" id="board-social">
+      <div class="board-title">
+        <p>Comunitario</p>
+      </div>
+      <div class="board-item"></div>
+      <div class="board-item"></div>
+    </div>
+    <div class="board-column" id="board-options">
+        <p>Objetivo familiar: <%= plan.family_objective %></p>
+        <p>Objetivo clínico: <%= plan.clinical_objective %></p>
+        <p>Factor de Riesgo: <%= plan.risk_factor %></p>
+        <p>Estado: <%= plan.state %></p>
+        <p>Tipo: <%= plan.plan_type %></p>
+        <select class="board-select">
+          <% for i in 0..@plans.length-1 do %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start</th>
-      <th>End</th>
-      <th>Owner</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @plans.each do |plan| %>
-      <tr>
-        <td><%= plan.start %></td>
-        <td><%= plan.end %></td>
-        <td><%= plan.owner_id %></td>
-        <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Plan', new_plan_path %>
+            <option value="<%=i%>"><%= @plans[i].id %></option>
+          <% end %>
+        </select>
+        <%= link_to 'New Plan', new_plan_path %>
+        <%= link_to 'New Activity', new_plan_path %>
+    </div>
+  </div>
+<% end %>
+</div>

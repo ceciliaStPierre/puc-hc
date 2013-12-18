@@ -21,10 +21,16 @@ class PlansController < ApplicationController
   def edit
   end
 
+  def new_activity
+    
+  end
+
   # POST /plans
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+    @plan.owner_id = current_user.id
+    @plan.state = "open"
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
@@ -68,6 +74,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:start, :end, :owner_id)
+      params.require(:plan).permit(:owner_id, :family_objective, :clinical_objective, :risk_factor, :state, :plan_type, :close_reason, :close_datetime)
     end
 end

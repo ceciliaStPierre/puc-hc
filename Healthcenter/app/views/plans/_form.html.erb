@@ -26,11 +26,11 @@
   <div class="form-selects">
     <div class="left-select">
       <%= f.label 'Factor de riesgo:' %>
-      <%= select_tag :risk_factor, options_for_select(PLAN_RISK) %>
+      <%= f.select :risk_factor, options_for_select(PLAN_RISK) %>
     </div>
     <div class="right-select">
       <%= f.label 'Tipo de plan:' %>
-      <%= select_tag :type, options_for_select(PLAN_TYPE) %>
+      <%= f.select :plan_type, options_for_select(PLAN_TYPE) %>
     </div>
   </div>
   <div class="form-group">

@@ -1,18 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Start:</strong>
-  <%= @plan.start %>
+  <strong>Objetivo Familiar:</strong>
+  <%= @plan.family_objective %>
 </p>
 
 <p>
-  <strong>End:</strong>
-  <%= @plan.end %>
+  <strong>Objetivo Clinico:</strong>
+  <%= @plan.clinical_objective %>
 </p>
 
 <p>
-  <strong>Owner:</strong>
-  <%= @plan.owner_id %>
+  <strong>FActor de Riesgo:</strong>
+  <%= @plan.risk_factor %>
+</p>
+<p>
+  <strong>Estado:</strong>
+  <%= @plan.state %>
+</p>
+<p>
+  <strong>Tipo de plan:</strong>
+  <%= @plan.plan_type %>
 </p>
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |

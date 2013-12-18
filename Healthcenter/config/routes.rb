@@ -5,6 +5,7 @@ Healthcenter::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   get "home/welcome"
+  get "plans/change_plan"
   resources :patients
 
   resources :activities

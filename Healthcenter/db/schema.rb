@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20131120231538) do
     t.text     "clinical_objective"
     t.string   "risk_factor"
     t.string   "state"
-    t.string   "type"
+    t.string   "plan_type"
     t.text     "close_reason"
     t.datetime "close_datetime"
     t.datetime "created_at"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20131120231538) do
     t.string   "speciality"
     t.string   "email"
     t.string   "password_digest"
+    t.boolean  "is_admins"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

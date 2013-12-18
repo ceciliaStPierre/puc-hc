@@ -6,7 +6,7 @@ class CreatePlans < ActiveRecord::Migration
       t.text :clinical_objective
       t.string :risk_factor
       t.string :state
-      t.string :type
+      t.string :plan_type
       t.text :close_reason
       t.datetime :close_datetime
       t.timestamps

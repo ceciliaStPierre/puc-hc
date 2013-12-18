@@ -1,6 +1,6 @@
 class Plan < ActiveRecord::Base
 	validates :state, :inclusion => { :in => PLAN_STATE }
-	validates :type, :inclusion => { :in => PLAN_TYPE }
+	validates :plan_type, :inclusion => { :in => PLAN_TYPE }
 	validates :risk_factor, :inclusion => { :in => PLAN_RISK }
 
 	has_many :users, through: :medical_teams

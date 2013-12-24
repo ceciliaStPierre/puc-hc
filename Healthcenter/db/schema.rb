@@ -11,18 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120231538) do
+ActiveRecord::Schema.define(version: 20131223225713) do
 
   create_table "activities", force: true do |t|
     t.text     "description"
     t.boolean  "is_done",         default: false
     t.text     "medical_summary"
     t.text     "family_summary"
-    t.string   "type"
-    t.datetime "deadline"
+    t.string   "activity_type"
+    t.date     "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "plan_id"
   end
+
+  add_index "activities", ["plan_id"], name: "index_activities_on_plan_id"
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "family_groups", id: false, force: true do |t|
     t.integer "plan_id"
@@ -30,13 +35,6 @@ ActiveRecord::Schema.define(version: 20131120231538) do
   end
 
   add_index "family_groups", ["plan_id", "patient_id"], name: "index_family_groups_on_plan_id_and_patient_id", unique: true
-
-  create_table "medical_teams", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "plan_id"
-  end
-
-  add_index "medical_teams", ["user_id", "plan_id"], name: "index_medical_teams_on_user_id_and_plan_id", unique: true
 
   create_table "patients", force: true do |t|
     t.string   "firstname",       limit: 100, null: false
@@ -55,7 +53,6 @@ ActiveRecord::Schema.define(version: 20131120231538) do
   end
 
   create_table "plans", force: true do |t|
-    t.integer  "owner_id",           null: false
     t.text     "family_objective"
     t.text     "clinical_objective"
     t.string   "risk_factor"
@@ -65,7 +62,10 @@ ActiveRecord::Schema.define(version: 20131120231538) do
     t.datetime "close_datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "plans", ["user_id"], name: "index_plans_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "firstname"

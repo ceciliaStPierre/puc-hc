@@ -16,18 +16,25 @@
 //= require_tree .
 //= require bootstrap
 //= require bootstrap-select
+//= require bootstrap-datepicker
 
 $(document).on('page:load', EnableSelectPicker);
 $(document).on('page:load', ShowFirstPlan);
 $(document).on('page:load', ChangeDisplayPlan);
+$(document).on('page:load', DateTimePicker);
 
 $(function(){
   EnableSelectPicker();
   ShowFirstPlan();
   ChangeDisplayPlan();
+  DateTimePicker();
 });
 
 
+function DateTimePicker()
+{
+	 $('#datepicker').datepicker({format: 'yyyy-mm-dd'});
+}
 
 function EnableSelectPicker(){
   $(".selectpicker").selectpicker();

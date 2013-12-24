@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 u = User.create(firstname: "Esteban", secondname: "Nicolás", father_lastname: "Piñones", mother_lastname: "Valenzuela", phone_number: 99180862, speciality: "Ingeniero", email: "cabasp@gmail.com", password: "123123123", password_confirmation: "123123123" )
+
+p = Plan.create(clinical_objective: "Objetivo de los doctores", family_objective: "Objetivo de la familia", risk_factor: "low", state: "open", plan_type: "algo", user_id: 1)

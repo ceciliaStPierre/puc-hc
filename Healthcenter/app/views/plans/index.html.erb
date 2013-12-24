@@ -6,23 +6,31 @@
       <div class="board-title">
         <p>Individual</p>
       </div>
-      <div class="board-item"></div>
-      <div class="board-item"></div>
+      <% plan.activities.each do |activity| %>
+        <% if activity.activity_type == "individual" %>
+          <div class="board-item"><%= activity.description %></div>
+          <% end %>
+      <% end %>
     </div>
     <div class="board-column" id="board-family">
       <div class="board-title">
         <p>Familiar</p>
       </div>
-      <div class="board-item"></div>
-      <div class="board-item"></div>
-      <div class="board-item"></div>
+      <% plan.activities.each do |activity| %>
+        <% if activity.activity_type == "social" %>
+          <div class="board-item"><%= activity.description %></div>
+          <% end %>
+      <% end %>
     </div>
     <div class="board-column" id="board-social">
       <div class="board-title">
         <p>Comunitario</p>
       </div>
-      <div class="board-item"></div>
-      <div class="board-item"></div>
+      <% plan.activities.each do |activity| %>
+        <% if activity.activity_type == "clinical" %>
+          <div class="board-item"><%= activity.description %></div>
+          <% end %>
+      <% end %>
     </div>
     <div class="board-column" id="board-options">
         <p>Objetivo familiar: <%= plan.family_objective %></p>
@@ -31,13 +39,13 @@
         <p>Estado: <%= plan.state %></p>
         <p>Tipo: <%= plan.plan_type %></p>
         <select class="board-select">
-          <% for i in 0..@plans.length-1 do %>
+          <% for j in 0..@plans.length-1 do %>
 
-            <option value="<%=i%>"><%= @plans[i].id %></option>
+            <option value="<%=j%>"><%= @plans[j].id %></option>
           <% end %>
         </select>
         <%= link_to 'New Plan', new_plan_path %>
-        <%= link_to 'New Activity', new_plan_path %>
+        <%= link_to "New Activity", {:controller => :activities, :action => :new, :id => plan.id}%>
     </div>
   </div>
 <% end %>

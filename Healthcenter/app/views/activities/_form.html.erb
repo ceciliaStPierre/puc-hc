@@ -1,4 +1,5 @@
-<%= form_for(@activity) do |f| %>
+<div class="form-wrapper">
+<%= form_for @activity , :url => {:action => "create",:plan_id => @plan.id}, :html => {:class => "form-horizontal"} do |f| %>
   <% if @activity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
@@ -10,28 +11,35 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= f.label 'Descripción', :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_area :description, :class => "form-control", :rows => "4" %>
+    </div>
+  </div>
+  <div class ="form-group">
+    <%= f.label 'Fecha limite:', :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :deadline, :class => "form-control", :id => "datepicker", :value => Date.today %>
+    </div>
+  </div>
+  <div class="form-selects">
+    <div class="left-select">
+      <%= f.label 'Tipo de actividad:' %>
+      <%= f.select :activity_type, options_for_select(ACTIVITY_TYPE) %>
+    </div>
+    <div class="right-select">
+      <%= f.label 'Responsable:' %>
+      <%= select("user", "id", User.all.collect {|p| [ p.firstname+" "+p.father_lastname, p.id ] }) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit "Crear", :class => "btn btn-default" %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :is_done %><br>
-    <%= f.check_box :is_done %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.text_field :patient_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
+</div>
+

@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
+    @plan = Plan.find(params[:id])
     @activity = Activity.new
   end
 
@@ -25,10 +26,15 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-
+    user_id = params[:user]['id']
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
+        #Guardamos al usuario correspondiente
+        @user = User.find(user_id)
+        @plan = Plan.find(params[:plan_id])
+        @user.activities << @activity
+        @plan.activities << @activity
+        format.html { redirect_to plans_path, notice: 'Activity was successfully created.' }
         format.json { render action: 'show', status: :created, location: @activity }
       else
         format.html { render action: 'new' }
@@ -69,6 +75,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:start, :end, :description, :is_done, :patient_id)
+      params.require(:activity).permit(:description, :is_done, :medical_summary, :family_summary, :activity_type, :deadline)
     end
 end

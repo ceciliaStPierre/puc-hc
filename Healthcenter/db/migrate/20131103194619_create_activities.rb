@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration
       t.boolean :is_done, :default => false
       t.text :medical_summary
       t.text :family_summary
-      t.string :type
+      t.string :activity_type
       t.datetime :deadline
       t.timestamps
     end

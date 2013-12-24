@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :plans, through: :medical_teams
-	has_many :medical_teams
+	has_many :plans
+	has_many :activities
 
 	has_secure_password
 

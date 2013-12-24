@@ -3,9 +3,8 @@ class Plan < ActiveRecord::Base
 	validates :plan_type, :inclusion => { :in => PLAN_TYPE }
 	validates :risk_factor, :inclusion => { :in => PLAN_RISK }
 
-	has_many :users, through: :medical_teams
-	has_many :medical_teams
-	has_many :activitys
+	belongs_to :user
+	has_many :activities
 	has_many :patients, through: :family_groups
 	has_many :family_groups
 end

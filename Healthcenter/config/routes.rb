@@ -6,6 +6,8 @@ Healthcenter::Application.routes.draw do
   get "sessions/destroy"
   get "home/welcome"
   get "plans/change_plan"
+  get 'plans/index' => 'plans#index', :as => :plans
+
   resources :patients
 
   resources :activities

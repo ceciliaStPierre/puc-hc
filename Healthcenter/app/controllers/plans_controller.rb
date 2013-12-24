@@ -29,10 +29,10 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
-    @plan.owner_id = current_user.id
     @plan.state = "open"
     respond_to do |format|
       if @plan.save
+        current_user.plans << @plan
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plan }
       else

@@ -45,8 +45,8 @@
           <% end %>
         </select>
         <%= link_to 'New Plan', new_plan_path %>
-        <%= link_to "New Activity", {:controller => :activities, :action => :new, :id => plan.id}%>
-    </div>
+        <%= link_to "New Activity",{:controller => :activities, :action => :new, :id => plan.id} %>
+   </div>
   </div>
 <% end %>
 </div>

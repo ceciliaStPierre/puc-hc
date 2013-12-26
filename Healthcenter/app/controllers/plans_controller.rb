@@ -5,6 +5,8 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index
     @plans = Plan.all
+    @activity = Activity.new
+    @plan = Plan.first
   end
 
   # GET /plans/1
@@ -19,10 +21,6 @@ class PlansController < ApplicationController
 
   # GET /plans/1/edit
   def edit
-  end
-
-  def new_activity
-    
   end
 
   # POST /plans

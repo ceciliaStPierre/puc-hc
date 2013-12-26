@@ -34,6 +34,7 @@ $(function(){
 function DateTimePicker()
 {
 	 $('#datepicker').datepicker({format: 'yyyy-mm-dd'});
+	 $("img[rel]").overlay();
 }
 
 function EnableSelectPicker(){

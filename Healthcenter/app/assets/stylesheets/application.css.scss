@@ -142,3 +142,21 @@ textarea
 {
   width:190px;
 }
+
+.form-wrapper
+{
+  display:block;
+}
+#patient_sex
+{
+  background: transparent;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border-style:solid;
+  border-width:1px;
+  border-radius: 5px;
+  border-color:lightgray;
+  height: 34px;
+}

@@ -1,61 +1,76 @@
-<%= form_for(@patient) do |f| %>
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+<div class="form-wrapper">
+  <%= form_for(@patient) do |f| %>
+    <% if @patient.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
-      <ul>
-      <% @patient.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @patient.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label 'Primer Nombre:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.text_field :firstname, :class => "form-control" %>
+      </div>
     </div>
-  <% end %>
+     <div class="form-group">
+      <%= f.label 'Segundo nombre: ', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.text_field :secondname, :class => "form-control" %>
+      </div>
+    </div>
+     <div class="form-group">
+      <%= f.label 'Primer apellido:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.text_field :father_lastname, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Segundo apellido:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.text_field :mother_lastname, :class => "form-control"%>
+      </div>
+    </div>
+    <div class ="form-group">
+      <%= f.label 'Fecha nacimiento:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.text_field :born_date, :class => "form-control", :id => "datepicker", :value => Date.today %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Dirección:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.text_field :home_adress, :class => "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Número de telefono:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.number_field :phone_number, :class => "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Número de contacto:', :class => "col-lg-4 control-label" %>
+      <div class="col-lg-8">
+        <%= f.number_field :contact_number, :class => "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+       <%= f.label 'Sexo:', :class => "col-lg-4 control-label"%>
+      <div class="col-lg-8">
+        <%= f.select :sex, options_for_select(SEX_TYPE), :class => "form-control", :id => "sex-select"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit "Crear", :class => "btn btn-default" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :firstname %><br>
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= f.label :secondname %><br>
-    <%= f.text_field :secondname %>
-  </div>
-  <div class="field">
-    <%= f.label :father_lastname %><br>
-    <%= f.text_field :father_lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :mother_lastname %><br>
-    <%= f.text_field :mother_lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :born_date %><br>
-    <%= f.date_select :born_date %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.check_box :sex %>
-  </div>
-  <div class="field">
-    <%= f.label :home_adress %><br>
-    <%= f.text_area :home_adress %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_number %><br>
-    <%= f.text_field :contact_number %>
-  </div>
-  <div class="field">
-    <%= f.label :genogram_url %><br>
-    <%= f.text_field :genogram_url %>
-  </div>
-  <div class="field">
-    <%= f.label :record_url %><br>
-    <%= f.text_field :record_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
+</div>
+

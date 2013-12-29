@@ -1,0 +1,13 @@
+<div class="center">
+  <h1>Grupos Familiares</h1>
+</div>
+  <br>
+  <div class="family-groups">
+  <% @family_groups.each do |family_group| %>
+    <div class="family-group-container">
+      <h1><%= link_to family_group.family_name, family_group %></h1>
+    </div>
+  <% end %>
+</div>
+ <%= link_to 'Nuevo Grupo', new_family_group_path %>
+

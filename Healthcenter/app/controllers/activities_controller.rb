@@ -34,7 +34,7 @@ class ActivitiesController < ApplicationController
         @plan = Plan.find(params[:plan_id])
         @user.activities << @activity
         @plan.activities << @activity
-        format.html { redirect_to plans_path, notice: 'Activity was successfully created.' }
+        format.html { redirect_to planslink_path, notice: 'Activity was successfully created.' }
         format.json { render action: 'show', status: :created, location: @activity }
       else
         format.html { render action: 'new' }

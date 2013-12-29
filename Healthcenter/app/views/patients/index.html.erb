@@ -1,47 +1,14 @@
-<h1>Listing patients</h1>
+<div class="center">
+	<h1>Pacientes</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Secondname</th>
-      <th>Father lastname</th>
-      <th>Mother lastname</th>
-      <th>Born date</th>
-      <th>Sex</th>
-      <th>Home adress</th>
-      <th>Phone number</th>
-      <th>Contact number</th>
-      <th>Genogram url</th>
-      <th>Record url</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.firstname %></td>
-        <td><%= patient.secondname %></td>
-        <td><%= patient.father_lastname %></td>
-        <td><%= patient.mother_lastname %></td>
-        <td><%= patient.born_date %></td>
-        <td><%= patient.sex %></td>
-        <td><%= patient.home_adress %></td>
-        <td><%= patient.phone_number %></td>
-        <td><%= patient.contact_number %></td>
-        <td><%= patient.genogram_url %></td>
-        <td><%= patient.record_url %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Patient', new_patient_path %>
+<% @patients.each do |patient| %>
+  <div class="patient-container">
+  	<h3><%= link_to patient.firstname+" "+patient.father_lastname, patient %></h3>
+  	<%= link_to image_tag(patient.avatar.url, :border=>0), patient, :id => patient.id %>
+  </div>
+<% end %>
+<div class="patient-container">
+	<h3><%= link_to "Nuevo Paciente", new_patient_path %></h3>
+	<%= link_to image_tag("avatar.png", :border=>0), new_patient_path %>
+</div>

@@ -1,13 +1,17 @@
 Healthcenter::Application.routes.draw do
-  resources :users
-
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   get "home/welcome"
   get "plans/change_plan"
-  get 'plans/index' => 'plans#index', :as => :plans
+  get 'plans/index' => 'plans#index', :as => :planslink
+  post 'plans/index'
+  post "family_groups/add_patient_to_group"
 
+  resources :family_groups
+
+  resources :users
+  
   resources :patients
 
   resources :activities

@@ -27,11 +27,15 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+    @family_group = FamilyGroup.find(params[:family_group]['id'])
     @plan.state = "open"
+
     respond_to do |format|
       if @plan.save
         current_user.plans << @plan
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+        @family_group.plan = @plan
+        @family_group.save
+        format.html { redirect_to planslink_path, notice: 'Plan was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plan }
       else
         format.html { render action: 'new' }

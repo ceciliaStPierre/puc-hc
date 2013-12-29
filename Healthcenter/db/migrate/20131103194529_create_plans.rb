@@ -1,7 +1,6 @@
 class CreatePlans < ActiveRecord::Migration
   def change
     create_table :plans do |t|
-      t.integer :owner_id, null: false
       t.text :family_objective
       t.text :clinical_objective
       t.string :risk_factor

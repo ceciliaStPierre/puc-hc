@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start:</strong>
-  <%= @activity.start %>
-</p>
-
-<p>
-  <strong>End:</strong>
-  <%= @activity.end %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @activity.description %>
-</p>
-
-<p>
-  <strong>Is done:</strong>
-  <%= @activity.is_done %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @activity.patient_id %>
-</p>
+<div class="activity-container">
+  <div id="left-activity">
+    <div><%= image_tag(@activity.user.avatar.url, :border=>0) %></div>
+    <div><p><%= @activity.user.firstname+" "+@activity.user.father_lastname %> </p></div>
+  </div>
+  <div id="right-activity">
+    <p>Descripción: <%= @activity.description %></p>
+    <p>Fecha limite: <%= @activity.deadline %></p>
+    <p>Tipo actividad: <%= @activity.activity_type %></p>
+    <% if current_user == @activity.user %>
+      <%= form_for @activity , :url => {:action => "update"} do |f| %>
+      <p>Terminada: <%= f.check_box :is_done %></p>
+      <p>Resumen medico: <%= f.text_area :medical_summary, :class => "form-control", :rows => "3" %></p>
+      <p>Resumen familiar: <%= f.text_area :family_summary, :class => "form-control", :rows => "3" %></p>
+      <%= f.submit "Actualizar", :id => "edit-activity-button", :class => "btn btn-default" %>
+      <%end%>
+    <% else %>
+      <p>Terminada: <%= @activity.is_done %></p>
+      <p>Resumen medico: <%= @activity.medical_summary %></p>
+      <p>Resumen familiar: <%= @activity.family_summary %></p>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>

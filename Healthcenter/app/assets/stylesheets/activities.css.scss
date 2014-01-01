@@ -1,3 +1,59 @@
 // Place all the styles related to the Activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.activity-container
+{
+	width:60%;
+	height:400px;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid;
+}
+
+#left-activity
+{
+	width:30%;
+}
+
+#right-activity
+{
+	width:69%;
+}
+
+#left-activity, #right-activity
+{
+	float:left;
+	height:100%;
+
+}
+
+
+
+#left-activity img
+{
+	margin-left:25px;
+	margin-right:25px;
+	margin-top:15px;
+	width:80%;
+	height:80%;
+}
+
+#left-activity p
+{
+	margin-top:5px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+}
+
+#edit-activity-button
+{
+	margin-right:0px;
+}
+
+#bottom_activity
+{
+	float:left;
+	border:1px solid;
+}

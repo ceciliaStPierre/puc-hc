@@ -8,7 +8,7 @@
       </div>
       <% plan.activities.each do |activity| %>
         <% if activity.activity_type == "individual" %>
-          <div class="board-item"><%= activity.description %></div>
+          <div class="board-item"><%= link_to activity.description, activity %></div>
           <% end %>
       <% end %>
     </div>
@@ -18,7 +18,7 @@
       </div>
       <% plan.activities.each do |activity| %>
         <% if activity.activity_type == "social" %>
-          <div class="board-item"><%= activity.description %></div>
+          <div class="board-item"><%= link_to activity.description, activity %></div>
           <% end %>
       <% end %>
     </div>
@@ -28,7 +28,7 @@
       </div>
       <% plan.activities.each do |activity| %>
         <% if activity.activity_type == "clinical" %>
-          <div class="board-item"><%= activity.description %></div>
+          <div class="board-item"><%= link_to activity.description, activity %></div>
           <% end %>
       <% end %>
     </div>

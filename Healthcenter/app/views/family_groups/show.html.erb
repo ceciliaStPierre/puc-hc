@@ -19,5 +19,8 @@
     <p><strong>Nuevo Paciente:</strong><%= select("patient", "id", Patient.all.collect {|p| [ p.firstname+" "+p.father_lastname, p.id ] }) %><%= submit_tag 'Agregar' %></p>
     <% end %>
   </div>
-<%= link_to 'Editar', edit_family_group_path(@family_group) %> |
+
+<br>
+
+<%= link_to 'Editar', edit_family_group_path(@family_group) %>
 <%= link_to 'Atras', family_groups_path %>

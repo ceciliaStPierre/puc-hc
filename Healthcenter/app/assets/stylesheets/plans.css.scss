@@ -2,3 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.board-item-left
+{
+	width:45%;
+}
+.board-item-right
+{
+	width:50%;
+}
+.board-item-left, .board-item-right
+{
+	float:left;
+	font-weight:bold;
+}

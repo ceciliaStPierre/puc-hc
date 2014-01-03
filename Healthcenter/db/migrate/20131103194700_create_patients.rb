@@ -6,7 +6,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :father_lastname, null: false, limit: 100
       t.string :mother_lastname, null: false, limit: 100
       t.date :born_date, null: false
-      t.boolean :sex, null: false
+      t.string :sex, null: false
       t.text :home_adress, null: false, limit: 200
       t.integer :phone_number
       t.integer :contact_number

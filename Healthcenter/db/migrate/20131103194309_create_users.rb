@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :speciality
       t.string :email
       t.string :password
-      t.boolean :is_admins
+      t.boolean :is_admin
 
       t.timestamps
     end

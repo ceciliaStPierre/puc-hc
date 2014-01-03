@@ -1,59 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @patient.firstname %>
-</p>
+<div class="people-container">
+  <div class="people-container-left">
+      <%= image_tag(@patient.avatar.url(:small)) %>
+  </div>
+  <div class="people-container-right">
+      <p> <strong>Nombre:</strong> <%= @patient.firstname+" "+@patient.secondname+" "+@patient.father_lastname+" "+@patient.mother_lastname%></p>
+      <p> <strong>Fecha de nacimiento:</strong> <%=@patient.born_date.strftime("%d/%m/%Y") %></p>
+      <p><strong>Sexo: </strong><%=@patient.sex %></p>
+      <p><strong>Dirección: </strong><%=@patient.home_adress%></p>
+      <p><strong>Teléfono del paciente: </strong><%=@patient.phone_number%></p>
+      <p><strong>Telefono de contacto: </strong><%=@patient.contact_number%></p>
+  </div>
+</div>
 
-<p>
-  <strong>Secondname:</strong>
-  <%= @patient.secondname %>
-</p>
+<br>
 
-<p>
-  <strong>Father lastname:</strong>
-  <%= @patient.father_lastname %>
-</p>
-
-<p>
-  <strong>Mother lastname:</strong>
-  <%= @patient.mother_lastname %>
-</p>
-
-<p>
-  <strong>Born date:</strong>
-  <%= @patient.born_date %>
-</p>
-
-<p>
-  <strong>Sex:</strong>
-  <%= @patient.sex %>
-</p>
-
-<p>
-  <strong>Home adress:</strong>
-  <%= @patient.home_adress %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @patient.phone_number %>
-</p>
-
-<p>
-  <strong>Contact number:</strong>
-  <%= @patient.contact_number %>
-</p>
-
-<p>
-  <strong>Genogram url:</strong>
-  <%= @patient.genogram_url %>
-</p>
-
-<p>
-  <strong>Record url:</strong>
-  <%= @patient.record_url %>
-</p>
-
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<%= link_to 'Editar', edit_patient_path(@patient) %> |
+<%= link_to 'Atras', patients_path %>

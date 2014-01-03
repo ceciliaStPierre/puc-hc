@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20131228222849) do
     t.string   "father_lastname",     limit: 100, null: false
     t.string   "mother_lastname",     limit: 100, null: false
     t.date     "born_date",                       null: false
-    t.boolean  "sex",                             null: false
+    t.string   "sex",                             null: false
     t.text     "home_adress",         limit: 200, null: false
     t.integer  "phone_number"
     t.integer  "contact_number"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20131228222849) do
     t.string   "speciality"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "is_admins"
+    t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"

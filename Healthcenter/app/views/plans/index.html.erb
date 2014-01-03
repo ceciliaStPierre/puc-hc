@@ -4,31 +4,52 @@
   <div class="board" id="board-<%=i%>">
     <div class="board-column" id="board-individual">
       <div class="board-title">
-        <p>Individual</p>
+        <p>Clinico</p>
       </div>
       <% plan.activities.each do |activity| %>
-        <% if activity.activity_type == "individual" %>
-          <div class="board-item"><%= link_to activity.description, activity %></div>
+        <% if activity.activity_type == "clinical" %>
+          <div class="board-item">
+            <div class="board-item-left">
+              <%= image_tag(activity.user.avatar.url(:thumb)) %>
+            </div>
+            <div class="board-item-right">
+              <%= link_to activity.description, activity %>
+            </div>
+          </div>
           <% end %>
       <% end %>
     </div>
     <div class="board-column" id="board-family">
       <div class="board-title">
-        <p>Familiar</p>
+        <p>Social</p>
       </div>
       <% plan.activities.each do |activity| %>
         <% if activity.activity_type == "social" %>
-          <div class="board-item"><%= link_to activity.description, activity %></div>
+          <div class="board-item">
+            <div class="board-item-left">
+              <%= image_tag(activity.user.avatar.url(:thumb)) %>
+            </div>
+            <div class="board-item-right">
+              <%= link_to activity.description, activity %>
+            </div>
+          </div>
           <% end %>
       <% end %>
     </div>
     <div class="board-column" id="board-social">
       <div class="board-title">
-        <p>Comunitario</p>
+        <p>Familiar</p>
       </div>
       <% plan.activities.each do |activity| %>
-        <% if activity.activity_type == "clinical" %>
-          <div class="board-item"><%= link_to activity.description, activity %></div>
+        <% if activity.activity_type == "family" %>
+          <div class="board-item">
+            <div class="board-item-left">
+              <%= image_tag(activity.user.avatar.url(:thumb)) %>
+            </div>
+            <div class="board-item-right">
+              <%= link_to activity.description, activity %>
+            </div>
+          </div>
           <% end %>
       <% end %>
     </div>
@@ -41,11 +62,10 @@
         <select class="board-select">
           <% for j in 0..@plans.length-1 do %>
 
-            <option value="<%=j%>"><%= @plans[j].id %></option>
+            <option value="<%=j%>"><%= @plans[j].family_group.family_name %></option>
           <% end %>
         </select>
-        <%= link_to 'New Plan', new_plan_path %>
-        <%= link_to "New Activity",{:controller => :activities, :action => :new, :id => plan.id} %>
+        <p><%= link_to 'Nuevo Plan', new_plan_path %> | <%= link_to "Nueva Actividad",{:controller => :activities, :action => :new, :id => plan.id} %></p>
    </div>
   </div>
 <% end %>

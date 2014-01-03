@@ -1,44 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @user.firstname %>
-</p>
+<div class="people-container">
+  <div class="people-container-left">
+      <%= image_tag(@user.avatar.url(:small)) %>
+  </div>
+  <div class="people-container-right">
+      <p> <strong>Nombre:</strong> <%= @user.firstname+" "+@user.secondname+" "+@user.father_lastname+" "+@user.mother_lastname%></p>
+      <p><strong>Especialidad: </strong><%=@user.speciality %></p>
+      <p><strong>Correo: </strong><%=@user.email%></p>
+      <p><strong>Teléfono: </strong><%=@user.phone_number%></p>
+  </div>
+</div>
 
-<p>
-  <strong>Secondname:</strong>
-  <%= @user.secondname %>
-</p>
+<br>
 
-<p>
-  <strong>Father lastname:</strong>
-  <%= @user.father_lastname %>
-</p>
-
-<p>
-  <strong>Mother lastname:</strong>
-  <%= @user.mother_lastname %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
-</p>
-
-<p>
-  <strong>Speciality:</strong>
-  <%= @user.speciality %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Atras', users_path %>

@@ -3,12 +3,12 @@
 </div>
 
 <% @patients.each do |patient| %>
-  <div class="patient-container">
+  <div class="people-board-container">
   	<h3><%= link_to patient.firstname+" "+patient.father_lastname, patient %></h3>
   	<%= link_to image_tag(patient.avatar.url, :border=>0), patient, :id => patient.id %>
   </div>
 <% end %>
-<div class="patient-container">
+<div class="people-board-container">
 	<h3><%= link_to "Nuevo Paciente", new_patient_path %></h3>
 	<%= link_to image_tag("avatar.png", :border=>0), new_patient_path %>
 </div>

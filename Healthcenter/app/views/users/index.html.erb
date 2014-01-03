@@ -1,41 +1,12 @@
-<h1>Listing users</h1>
+<div class="center">
+  <h1>Equipo médico</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Secondname</th>
-      <th>Father lastname</th>
-      <th>Mother lastname</th>
-      <th>Phone number</th>
-      <th>Speciality</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.firstname %></td>
-        <td><%= user.secondname %></td>
-        <td><%= user.father_lastname %></td>
-        <td><%= user.mother_lastname %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= user.speciality %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<% @users.each do |user| %>
+  <% if !user.is_admin %>
+    <div class="people-board-container">
+      <h3><%= link_to user.firstname+" "+user.father_lastname, user %></h3>
+      <%= link_to image_tag(user.avatar.url(:small), :border=>0), user, :id => user.id %>
+    </div>
+  <% end %>
+<% end %>

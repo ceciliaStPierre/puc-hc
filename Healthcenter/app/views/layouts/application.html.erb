@@ -13,15 +13,21 @@
 				</div>
 				<div class="navbar-collapse collapse">
 				  <ul class="nav navbar-nav">
-				    <%= nav_link "Inicio", home_welcome_path%>
-					<%= nav_link "Planes", plans_path%>
-					<%= nav_link "Grupos Familiares", family_groups_path%>
+				    <!--<%= nav_link "Inicio", home_welcome_path%>-->
+					<%= nav_link "Inicio", plans_path%>
 					<%= nav_link "Pacientes", patients_path%>
-					<%= nav_link "Equipo", users_path%>
+					<%= nav_link "Grupos Familiares", family_groups_path%>
+					
+					
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
 				  	<li><%= link_to "Usuario: "+ current_user.firstname, user_path(current_user) %></li>
-					<li><%= link_to 'Cerrar sesión', session_path, method: :delete %></li>
+					<li><%= link_to session_path, method: :delete do %>
+						<i class="glyphicon glyphicon-log-out"></i>
+						<% end %></li>
+					<li><%= link_to users_path do %>
+						<i class="glyphicon glyphicon-cog"></i>
+						<% end %></li>
 				  </ul>
 				</div>	
 			</div>
